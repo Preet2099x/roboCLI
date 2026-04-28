@@ -43,7 +43,7 @@ ls /dev/ttyACM*
 ## Run
 
 ```bash
-python3 main.py
+sudo python3 roboCLI.py
 ```
 
 ---
@@ -58,12 +58,18 @@ F3,L90,F2,R90,B1
 
 Where:
 
-* `F` = Forward
-* `B` = Backward
-* `L` = Left turn
-* `R` = Right turn
+* `F` = Forward (distance in **meters**)
+* `B` = Backward (distance in **meters**)
+* `L` = Left turn (angle in **degrees**)
+* `R` = Right turn (angle in **degrees**)
 
-Values represent distance or angle depending on your firmware.
+Example interpretation:
+
+```
+F3   → move forward 3 meters  
+L90  → turn left 90 degrees  
+B1   → move backward 1 meter  
+```
 
 ---
 
@@ -148,9 +154,9 @@ Output: R90,B3
 Commands sent:
 
 ```text
-T:<track>   → Execute track
-X           → Emergency stop
-q           → Pause/Resume
+T:<track>   → Execute track  
+X           → Emergency stop  
+q           → Pause/Resume  
 ```
 
 Each command ends with newline `\n`.
@@ -189,8 +195,8 @@ To stop loop.
 
 ## Notes
 
-* Script uses non-blocking keyboard input (Linux terminal).
-* Requires a real TTY (won’t work properly inside some IDE consoles).
-* Tested on Ubuntu.
+* Script uses non-blocking keyboard input (Linux terminal)
+* Requires a real TTY (may not work inside some IDE consoles)
+* Tested on Ubuntu
 
 ---
